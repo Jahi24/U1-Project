@@ -16,9 +16,9 @@ public class Main {
         System.out.print("Number of People: ");
         int people = scan.nextInt();
         System.out.println();
-        int bill = (int)(billSmall * 100);
+        int bill = (int) (billSmall * 100);
         int tipInt = bill * percent;
-        double tip = (double)tipInt / 10000;
+        double tip = (double) tipInt / 10000;
         if ((tip % .01 != 0) & ((tip % .01) >= .005))
             tip = (int) ((tip * 100) + 1) / 100.0;
         else if (tip % .01 != 0)
@@ -27,16 +27,27 @@ public class Main {
         double tipPerPerson = (int) ((tip * 100) / people) / 100.0;
         double billPerPerson = (int) ((totalBill * 100) / people) / 100.0;
         System.out.println("----------------------------");
-        System.out.println("|Total Tip Amount: $" + tip + "    |");
+        if (((tip * 100) % 10) == 0)
+            System.out.println("|Total Tip Amount: $" + tip + "0    |");
+        else
+            System.out.println("|Total Tip Amount: $" + tip + "    |");
         System.out.println("----------------------------");
-        System.out.println("|Total bill cost: $" + totalBill + "    |");
+        if (((totalBill * 100) % 10) == 0)
+            System.out.println("|Total bill cost: $" + totalBill + "0    |");
+        else
+            System.out.println("|Total bill cost: $" + totalBill + "    |");
         System.out.println("----------------------------");
-        System.out.println("|Tip per person: $" + tipPerPerson + "      |");
+        if (((tipPerPerson * 100) % 10) == 0)
+            System.out.println("|Tip per person: $" + tipPerPerson + "0      |");
+        else
+            System.out.println("|Tip per person: $" + tipPerPerson + "      |");
         System.out.println("----------------------------");
-        System.out.println("|Total bill per person: $" + billPerPerson + "  |");
+        if (((billPerPerson * 100) % 10) == 0)
+            System.out.println("|Total bill per person: $" + billPerPerson + "0  |");
+        else
+            System.out.println("|Total bill per person: $" + billPerPerson + "  |");
         System.out.println("----------------------------");
 
         scan.close();
-
     }
 }
