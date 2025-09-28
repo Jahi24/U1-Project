@@ -16,18 +16,18 @@ public class Main {
         System.out.print("Number of People: ");
         int people = scan.nextInt();
         System.out.println();
-        int bill = (int) (billSmall * 100);
+        int bill = (int) (billSmall * 100); // makes calculations easier and properly rounded
         int tipInt = bill * percent;
-        double tip = (double) tipInt / 10000;
-        if ((tip % .01 != 0) & ((tip % .01) >= .005))
+        double tip = tipInt / 10000.0 ;
+        if ((tip % .01 != 0) & ((tip % .01) >= .005)) // if statement to round up the tip
             tip = (int) ((tip * 100) + 1) / 100.0;
         else if (tip % .01 != 0)
             tip = (int) (tip * 100) / 100.0;
-        double totalBill = (int) ((billSmall + tip) * 100) / 100.0;
+        double totalBill = (int) ((billSmall + tip) * 100) / 100.0; // recurring function that allows for a maximum of 2 numbers past the decimal point
         double tipPerPerson = (int) ((tip * 100) / people) / 100.0;
         double billPerPerson = (int) ((totalBill * 100) / people) / 100.0;
         System.out.println("----------------------------");
-        if (((tip * 100) % 10) == 0)
+        if (((tip * 100) % 10) == 0) // if statement that accounts for cent amounts that are a multiple of ten, repeated for each value printed
             System.out.println("|Total Tip Amount: $" + tip + "0    |");
         else
             System.out.println("|Total Tip Amount: $" + tip + "    |");
